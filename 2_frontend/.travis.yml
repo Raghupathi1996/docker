@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install: ## it is used for any commands that has to be running before the program is been built.
+  - docker build -t raghu/docker-2_frontend -f Dockerfile.dev .
+
+script:  ##commands to run the test suit.
+  - docker run raghu/docker-2_frontend npm run test -- --coverage ## `-- --coverage` ends the process once the test gets completed   
